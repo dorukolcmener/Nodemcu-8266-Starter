@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "ls": "node_modules/.bin/nodemcu-tool fsinfo",
-    "upload-app": "node_modules/.bin/nodemcu-tool upload app/*",
+    "upload-app": "node_modules/.bin/nodemcu-tool upload --minify app/*",
+    "upload-com": "node_modules/.bin/nodemcu-tool upload --minify --compile app/*",
     "devices": "node_modules/.bin/node_modules/.bin/nodemcu-tool devices",
     "format": "node_modules/.bin/nodemcu-tool mkfs --noninteractive",
     "flash-fw": "python -m esptool --port /dev/ttyUSB0 write_flash -fm qio 0x00000 firmware/nodemcu-release-8-modules-2022-11-27-00-20-20-float.bin",
@@ -16,7 +17,8 @@
     "init": "node_modules/.bin/nodemcu-tool init",
     "debug": "node_modules/.bin/nodemcu-tool run main.lua",
     "reset": "node_modules/.bin/nodemcu-tool reset",
-    "ur": "npm run upload-app && npm run reset"
+    "ur": "npm run upload-app && npm run reset",
+    "uc": "npm run upload-com && npm run reset"
   },
   "keywords": [],
   "author": "",
